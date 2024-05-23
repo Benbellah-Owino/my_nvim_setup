@@ -17,7 +17,7 @@ lsp.set_preferences({
 
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
-    
+
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -46,7 +46,25 @@ require('mason-lspconfig').setup({
     },
     handlers = {
         function(server_name)
-            require('lspconfig')[server_name].setup({})
-        end,
+            require('lspconfig')['rust_analyzer'].setup({
+                tools = {
+                inlay_hints = {
+                auto = true,
+                only_current_line = false,
+                show_parameter_hints = true,
+                parameter_hints_prefix = "<- ",
+                other_hints_prefix = "=> ",
+                max_len_align = false,
+                max_len_align_padding = 1,
+                right_align = false,
+                right_align_padding = 7,
+                highlight = "Comment",
+            },
+        },
+
+    })
+end,
     },
 })
+
+

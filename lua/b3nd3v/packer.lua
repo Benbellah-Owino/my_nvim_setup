@@ -50,5 +50,11 @@ use {
     "neovim/nvim-lspconfig",
 }
 use 'wakatime/vim-wakatime'
+use 'simrat39/rust-tools.nvim'
 
+-- Debugging
+use 'nvim-lua/plenary.nvim'
+use 'mfussenegger/nvim-dap'
+
+use 'jose-elias-alvarez/nvim-lsp-ts-utils'
   end)
